@@ -2,45 +2,154 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elementals</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elementals</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #222;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: rgba(255, 255, 255, 0.2);
+      letter-spacing: 20px;
+      text-align: center;
+      margin: 10px;
+      font-size: 45px;
+      background: url('image/fire.jpg') repeat-x;
+      background-size: contain;
+      -webkit-background-clip: text;
+      animation: fire 15s linear infinite;
+    }
+
+    @keyframes fire {
+      0% {
+        background-position: left 0 top 10px;
+      }
+      50% {
+        background-position: left 125px top -10px;
+      }
+      100% {
+        background-position: left 250px top 10px;
+      }
+    }
+
+    .container {
+      background: #222;
+      position: relative;
+      width: 1px;
+      height: 500px;
+    }
+
+    .container .element {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 16px;
+      transition: 0.4s;
+      border-radius: 10px;
+    }
+
+    .container .element.air {
+      background: url('image/air.jpg') center;
+      background-size: cover;
+      clip-path: polygon(0 0, 40% 0, 15% 100%, 0 100%);
+    }
+
+    .container .element.earth {
+      background: url('image/earth.jpg') center;
+      background-size: cover;
+      clip-path: polygon(40% 0, 90% 0, 45% 100%, 15% 100%);
+    }
+
+    .container .element.water {
+      background: url('image/water.jpg') center;
+      background-size: cover;
+      clip-path: polygon(90% 0, 100% 0, 100% 100%, 45% 100%);
+    }
+
+    .container .element:hover {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      z-index: 10;
+    }
+
+    .container .element .content {
+      position: absolute;
+      left: 0;
+      bottom: -100%;
+      width: 80%;
+      padding: 18px;
+      background: #fff;
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .container .element:hover .content {
+      bottom: 0;
+      opacity: 1;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      color: #fff;
+      font-family: sans-serif, cursive;
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
-    <div>
-        <h1>HTML ELEMENTALS</h1>
+  <header>
+    <h1>HTML ELEMENTALS</h1>
+  </header>
 
-        <div class="container">
-            <div class="element air">
-                <div class="content">
-                    <h2>Document metadata</h2>
-                    <p>Metadata contains information about the page. This includes information about styles, scripts and data to help software (search engines, browsers, etc.) use and render the page.</p>
-                </div>
-            </div>
-            <div class="element earth">
-                <div class="content">
-                    <h2>Content sectioning</h2>
-                    <p>Use the sectioning elements to create a broad outline for your page content, including header and footer navigation, and heading elements to identify sections of content.</p>
-                </div>
-            </div>
-            <div class="element water">
-                <div class="content">
-                    <h2>Other Element Groups</h2>
-                    <p>Text content, Inline text semantics, Image and multimedia, Embedded content, SVG and MathML, Scripting, Demarcating edits, Table content, Forms, Interactive elements.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+  <main class="container">
+    <section class="element air" role="img" aria-label="Elemento Ar - Metadata HTML">
+      <div class="content">
+        <h2>Document Metadata</h2>
+        <p>Metadata contains information about the page — including styles, scripts, and structured data that help browsers and search engines interpret content.</p>
+      </div>
+    </section>
+
+    <section class="element earth" role="img" aria-label="Elemento Terra - Estrutura do Conteúdo HTML">
+      <div class="content">
+        <h2>Content Sectioning</h2>
+        <p>Sectioning elements define the structure of a page, allowing for organized layouts and logical hierarchies like headers, navigation, and articles.</p>
+      </div>
+    </section>
+
+    <section class="element water" role="img" aria-label="Elemento Água - Multimídia e Interatividade">
+      <div class="content">
+        <h2>Other Element Groups</h2>
+        <p>Include text formatting, media, embedded content, SVG, tables, forms, and interactive elements that enhance the user experience.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Elemental HTML — by Max</p>
+  </footer>
 </body>
-
-<footer>
-    <p>&COPY; Copyright 2022 - Elemental HTML by Max</p>
-</footer>
 
 </html>
